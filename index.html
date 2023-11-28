@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Calculadora de Investimento</title>
+</head>
+<body>
+
+<div class="calculator">
+    <h1>Calc</h1>
+    <form id="investmentForm">
+        <label for="valorInicial">Capital Inicial:</label>
+        <input type="number" id="valorInicial" placeholder="Digite o capital inicial" required>
+
+        <label for="depositoMensal">Depósito Mensal:</label>
+        <input type="number" id="depositoMensal" placeholder="Digite o depósito mensal">
+
+        <label for="taxaDeJurosAnual">Taxa de Juros Anual (%):</label>
+        <input type="number" id="taxaDeJurosAnual" placeholder="Digite a taxa de juros" required>
+
+        <label for="years">Período em Anos:</label>
+        <input type="number" id="periodoAnos" placeholder="Digite o período em anos" required>
+
+        <button type="button" onclick="calculateInvestment()">Calcular</button>
+    </form>
+
+    <div id="resultado" class="hidden">
+        <h2>Resultado:</h2>
+        <p id="valorFuturo"></p>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
