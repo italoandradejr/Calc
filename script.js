@@ -4,22 +4,40 @@ function calculateInvestment() {
     var taxaDeJurosAnual = parseFloat(document.getElementById('taxaDeJurosAnual').value);
     var periodoAnos = parseFloat(document.getElementById('periodoAnos').value);
 
-    const converteAnoEmMes = periodoAnos * 12
-    const converteTaxaAnualParaMeses = taxaDeJurosAnual / 12
 
-    var valorFuturo = valorInicial;
+    //var valorFuturo = valorInicial;
 
-    console.log(converteTaxaAnualParaMeses)
-
-    for (var i = 0; i < converteAnoEmMes; i++) {
-
-        valorFuturo = ((valorFuturo + depositoMensal) * (1 + converteTaxaAnualParaMeses / 100)) - 0.72
+    const PeriodoConvertidoMes = periodoAnos * 12
 
 
-        console.log(valorFuturo)
+    //1 - var equivalenciaTaxaMes = ((Math.pow(1 + (taxaDeJurosAnual/100), periodoAnos/12) - 1) * 100).toFixed(4)
+
+   //2 - const equivalenciaTaxaMes = (1 + taxaDeJurosAnual / 100) ** (1 / 12) - 1
+
+   const equivalenciaTaxaMes = Math.pow(1 + taxaDeJurosAnual / 100, 1 / 12) - 1
+
+
+    console.log("taxa de equivalente: " + equivalenciaTaxaMes)
+
+    var calcJurosCompostos = valorInicial;
+    for (var i = 0; i < PeriodoConvertidoMes; i++) {
+        calcJurosCompostos = (calcJurosCompostos + depositoMensal) * (1 + equivalenciaTaxaMes);
     }
 
-    document.getElementById('valorFuturo').innerText = 'O valor futuro do investimento será de R$ ' + valorFuturo.toFixed(2);
+
+    console.log("valor: " + calcJurosCompostos)
+ 
+
+    document.getElementById('valorFuturo').innerText = 'O valor futuro do investimento será de R$ ' + calcJurosCompostos.toFixed(2);
     document.getElementById('resultado').classList.remove('hidden');
 }
 
+
+//https://www.mobills.com.br/calculadoras/conversor-de-taxas-de-juros-anual-para-mensal/
+
+//https://investnews.com.br/ferramentas/calculadoras/calculadora-de-juros-compostos/#:~:text=A%20f%C3%B3rmula%20dos%20juros%20compostos,(1%20%2B%20i)%5Et
+
+  /*
+   
+    }
+    */
