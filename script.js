@@ -15,7 +15,7 @@ function calculateInvestment() {
    //2 - const equivalenciaTaxaMes = (1 + taxaDeJurosAnual / 100) ** (1 / 12) - 1
 
    const equivalenciaTaxaMes = Math.pow(1 + taxaDeJurosAnual / 100, 1 / 12) - 1
-
+   
 
     console.log("taxa de equivalente: " + equivalenciaTaxaMes)
 
@@ -37,7 +37,4 @@ function calculateInvestment() {
 
 //https://investnews.com.br/ferramentas/calculadoras/calculadora-de-juros-compostos/#:~:text=A%20f%C3%B3rmula%20dos%20juros%20compostos,(1%20%2B%20i)%5Et
 
-  /*
-   
-    }
-    */
+  
